@@ -1,40 +1,38 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput,Button,Image} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {Button,Text, Form, Item, Input, Container} from 'native-base';
 
 export default class Login extends Component{
   static navigationOptions = { header: null};
     render(){
         return(
-            <View style={styles.container}>
+            <Container style={{justifyContent: "center"}}>
 
                 <Text style={styles.title}>Book</Text>
-                <TextInput
-                    style={{height: 40,marginTop:50}}
-                    placeholder="Email"
-                    onChangeText={(text) => this.setState({text})}
-                />
+                <Form style={{marginTop:50}}>
+                    <Item>
+                        <Input placeholder="Email" />
+                    </Item>
+                    <Item last>
+                        <Input placeholder="Password" />
+                    </Item>
+                </Form>
 
-                <TextInput
-                    style={{height: 40}}
-                    secureTextEntry
-                    placeholder="Password"
-                    onChangeText={(text) => this.setState({text})}
-                />
+                <Button rounded 
+                onPress={() => this.props.navigation.navigate('Navigator')}
+                style={{marginTop:30, justifyContent: "center",alignItems:"center",textAlign:'center'}}
+                color='#694fad'
+                >
+                        <Text>Login</Text>
+                </Button>
 
-                <Button
-                onPress={() => this.props.navigation.navigate('Navigator')} title="Navigator"
-                title="Login"
-                color="red"
-                />
-
-                <Button
+                <Button small transparent
                 onPress={() => this.props.navigation.navigate('Register')} 
-                style={{height: 40,marginTop:20}}
-                title="Register"
-                title="Register"
-                color="green"
-                />
-            </View>
+                style={{alignItems:'center',textAlign:'center',justifyContent:'center'}}
+                >
+                        <Text style={{color:'#694fad'}}>or Register</Text>
+                </Button>
+            </Container>
 
         )
     }
@@ -45,9 +43,8 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         fontSize : 40,
-        color:'blue',
+        color:'#694fad',
         alignItems:"center",
-        marginTop:170,
         textAlign:'center',
     },
 
