@@ -4,6 +4,31 @@ import {Button,Text, Form,Item,Input, Container} from 'native-base';
 
 export default class Register extends Component{
   static navigationOptions = { header: null};
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
+
+  _signIn = async () => {
+    const { email, password } = this.state;
+    const params = { email, password };
+    try {
+      const result = await ENDPOINT.login(params);
+      const myJSON = JSON.stringify(params);
+      alert(myJSON);
+      console.log({ result });
+      if (result.token.length > 0) {
+        this.props.navigation.navigate('Navigator');
+      } else {
+        ToastAndroid.show('Failed to login', ToastAndroid.SHORT);
+      }
+    } catch (error) {
+      ToastAndroid.show('error.networkError', ToastAndroid.SHORT);
+    }
+  };
     render(){
         return(
             <Container style={{justifyContent:'center'}}>
