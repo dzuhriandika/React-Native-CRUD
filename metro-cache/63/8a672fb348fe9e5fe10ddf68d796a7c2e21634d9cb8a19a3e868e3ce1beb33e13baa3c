@@ -1,0 +1,1 @@
+{"dependencies":[],"output":[{"data":{"code":"__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {\n  module.exports = {\n  \"name\": \"crudReactNative\",\n  \"displayName\": \"crudReactNative\"\n}\n;\n});","lineCount":7,"map":[],"functionMap":null},"type":"js/module/asset"}]}

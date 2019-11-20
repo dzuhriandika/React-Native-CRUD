@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import Login from './Components/Login';
-import Register from './Components/Register';
-import Navigator from './Components/Navigator';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
 
-const MainNavigator = createStackNavigator({
-  Login: { screen: Login },
-  Register: { screen: Register },
-  Navigator: { screen: Navigator }
-});
-const App = createAppContainer(MainNavigator);
-export default App;
+import React, {Component} from 'react';
+import Router from './src/router';
+
+export default class App extends Component {
+  render() {
+    return <Router />;
+  }
+}
